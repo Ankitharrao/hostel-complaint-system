@@ -1,0 +1,13 @@
+# node
+node_modules/
+build/
+
+# env
+.env
+
+# docker
+*.log
+
+# system
+.DS_Store
+
