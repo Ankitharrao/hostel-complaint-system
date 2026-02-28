@@ -2,14 +2,16 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+const allowedOrigins = ["http://localhost:80", "http://localhost", "http://localhost:3000", "http://localhost:3001"];
 
 app.use(cors({
-  origin: "http://localhost:3000", // React dev server
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: true,  // reflects the request origin, allows all
   credentials: true
 }));
-
-app.use(express.json());
 
 
 app.use("/api/auth", require("./routes/auth"));
